@@ -42,7 +42,7 @@ class TelegramPublisherPlugin : Plugin<Project> {
             return@revWalk Pair(
                 first = headCommit.name,
                 second =  revWalk
-                    .takeWhile { !it.name.startsWith(prevCommit) }
+                    .takeWhile { !prevCommit.contains(it.name) }
                     .joinToString("\n\n") { commit ->
                         StringBuilder()
                             .apply {
